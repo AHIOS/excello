@@ -10,7 +10,7 @@ exports.newHook = (req, res) => {
     });
 };
 
-app.lastReq = (req, res {
+app.lastReq = (req, res) =>{
   if (lastReq) {
     res.status(200).json(lastReq);
   }
