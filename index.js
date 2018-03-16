@@ -22,6 +22,7 @@ app.use( bodyParser.json() );
 // Only act when a specific route is called
 // This reduces malicious / accidental use
 app.all("/hooks", function(req, res, next) {
+  console.log(req);
   res.status(200).json({
       err:false,
       status: "OK"
