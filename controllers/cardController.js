@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var Card = require("../../models/cardModel");
+var Card = require("../models/cardModel");
 
 exports.postCard = (req, res) => {
   var newCard = new Card({
