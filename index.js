@@ -18,15 +18,10 @@ var express  = require('express'),
 const db = require('./DB.js');
 const router = require('./routes');
 
-var lastReq;
-
 // Allows us to easily read the payload from the webhook
 app.use( bodyParser.json() );
 app.use('/', router);
 
-app.get("/lastReq", function(req, res, next) {
-  res.status(200).json(lastReq);
-});
 
 // Standard NodeJS Listener
 var server = app.listen(port, function () {
