@@ -4,6 +4,7 @@
   "description": "A bridge from trello webhooks to google spreadsheets",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "mocha"
   },
   "repository": {
