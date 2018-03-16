@@ -15,21 +15,15 @@ var express  = require('express'),
     key = process.env.TRELLO_KEY,
     token = process.env.TRELLO_TOKEN;
 
+const db = require('./DB.js');
+const router = require('./routes');
+
 var lastReq;
 
 // Allows us to easily read the payload from the webhook
 app.use( bodyParser.json() );
+app.use('/', router);
 
-// Only act when a specific route is called
-// This reduces malicious / accidental use
-app.all("/hooks", function(req, res, next) {
-  lastReq = req.body;
-  console.log(lastReq);
-  res.status(200).json({
-      err:false,
-      status: "OK"
-    });
-});
 app.get("/lastReq", function(req, res, next) {
   res.status(200).json(lastReq);
 });
