@@ -22,19 +22,10 @@ app.use( bodyParser.json() );
 // Only act when a specific route is called
 // This reduces malicious / accidental use
 app.all("/hooks", function(req, res, next) {
-
-	// What type of actions do we want to respond to?
-	// In this case, updateCard or createCard
-	if(req.body.action.type === 'updateCard' ||
-		req.body.action.type === 'createCard' &&
-		req.body.action.data.card.name) {
-
-		// Get the name and id of the card
-		oldName = req.body.action.data.card.name;
-		id = req.body.action.data.card.id;
-  }
-
-	res.send('OK');
+  res.status(200).json({
+      err:false,
+      status: "OK"
+    });
 });
 
 
