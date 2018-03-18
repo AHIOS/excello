@@ -6,6 +6,8 @@
 *  which Trello DOES support.
 */
 
+require('dotenv').config();
+
 var express  = require('express'),
     request  = require('request'),
     app      = express(),

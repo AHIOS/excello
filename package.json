@@ -26,6 +26,7 @@
   "homepage": "https://github.com/AHIOS/excello#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "mongojs": "^2.5.0",
     "mongoose": "^5.0.10",
