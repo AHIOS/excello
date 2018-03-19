@@ -1,20 +1,23 @@
+const cardController = require('./cardController');
 
 var lastReq;
 
 exports.newHook = (req, res) => {
   lastReq = req.body;
   console.log(lastReq);
-  res.status(200).json({
-      err:false,
-      status: "OK"
-    });
+  cardController.handlePost(req, res);
+  // res.status(200).json({
+  //     err:false,
+  //     status: "OK"
+  //   });
 };
 
 exports.lastReq = (req, res) =>{
   if (lastReq) {
     res.status(200).json(lastReq);
   }
-  res.status(200).json({});
+  // res.status(200).json({});
+  cardController.handleGet(req, res);
 };
 
 exports.getTracks = (req, res) => {

@@ -2,22 +2,30 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema;
 
 var CardSchema = new Schema({
-    start_ts: {
-      type: Number,
-      required: true
-    },
-    end_ts: {
-      type: Number,
-      required: true
-    },
-    user_id: {
-      type: Number,
-      required: true
-    },
-    pet_id: {
-      type: Number,
-      required: true
-    }
+  type: {
+    type: String,
+    required: true
+  },
+  id: {
+    type: String,
+    required: true
+  },
+  text: {
+    type: String
+  },
+  desc: {
+    type: String
+  },
+  estPoints: {
+    type: Number,
+    min: [0, 'Too few estimated points'],
+    max: 21
+  },
+  conPoints: {
+    type: Number,
+    min: [0, 'Too few consumed points'],
+    max: 42
+  }
 },
 {
   timestamps: true

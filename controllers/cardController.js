@@ -1,32 +1,32 @@
 const mongoose = require('mongoose');
 var Card = require("../models/cardModel");
-var express = require('express')
-  , router = express.Router();
 
 
-var handlePost = (req, res) => {
+exports.handlePost = (req, res) => {
   var newCard = new Card({
-    start_ts       : req.body.start_ts,
-    end_ts         : req.body.end_ts,
-    user_id        : req.body.user_id,
-    pet_id        : req.body.pet_id
+    type       : req.body.action.display.entities.card.type,
+    id         : req.body.action.display.entities.card.id,
+    text       : req.body.action.display.entities.card.text,
+    desc       : req.body.action.display.entities.card.desc
   });
+
+  var matches = newCard.text.match(/\((.*?)\)/);
+  if (matches) {
+    newCard.estPoints = matches[1];
+  }
+  matches = newCard.text.match(/\[(.*?)\]/);
+  if (matches) {
+    newCard.conPoints = matches[1];
+  }
+
   newCard.save(function(err) {
     if (err) {
       return res.status(400).json({success: false, msg: 'Save card failed.', error: err.message});
     }
-    res.status(201).json({success: true, msg: 'Successfully created new card.', track: newTrack});
+    res.status(201).json({success: true, msg: 'Successfully created new card.', card: newCard});
   });
 };
 
-var handleGet = (req, res) => {
+exports.handleGet = (req, res) => {
   res.status(200).json({msg:'OK'});
 };
-
-router.post('/', handlePost);
-router.get('/', handleGet);
-
-
-
-
-module.exports = router;

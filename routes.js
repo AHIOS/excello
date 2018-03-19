@@ -6,6 +6,7 @@ const trelloController = require('./controllers/trelloController');
 
 router.all('/hooks', trelloController.newHook);
 router.all('/lastReq', trelloController.lastReq);
-router.use('/api/cards', cardController);
+router.get('/api/cards', cardController.handleGet);
+router.post('/api/cards', cardController.handlePost);
 
 module.exports = router;
