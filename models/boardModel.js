@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema;
 
-var CardSchema = new Schema({
+var BoardSchema = new Schema({
   shortLink: {
     type: String,
     required: true
@@ -52,6 +52,6 @@ var CardSchema = new Schema({
 });
 
 
-const Card = mongoose.model('Card', CardSchema);
+const Board = mongoose.model('Board', BoardSchema);
 
-module.exports = Card;
+module.exports = Board;
