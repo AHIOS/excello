@@ -10,11 +10,11 @@ var CardSchema = new Schema({
     type: String,
     required: true
   },
-  shortLink: {
+  idList: {
     type: String,
     required: true
   },
-  shortLink: {
+  idBoard: {
     type: String,
     required: true
   },
@@ -46,9 +46,6 @@ var CardSchema = new Schema({
     min: [0, 'Too few consumed points'],
     max: 42
   }
-},
-{
-  timestamps: true
 });
 
 
