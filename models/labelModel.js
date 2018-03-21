@@ -14,7 +14,7 @@ var LabelSchema = new Schema({
     type: String,
     required: true
   }
-);
+});
 
 
 const Label = mongoose.model('Label', LabelSchema);
