@@ -19,7 +19,7 @@ var CardSchema = new Schema({
   idBoard: {
     type: String,
     required: true
-  }
+  },
   id: {
     type: String,
     required: true
